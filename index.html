@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Meses a tu Lado 🦕💚 Yuliana Valentina &amp; William Esteban</title>
+  <meta name="description" content="Regalo interactivo en 3D de aniversario de 5 meses para el amor de mi vida, Yuliana Valentina.">
+  <meta name="theme-color" content="#10b981">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Favicon Heart / Dino -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles (raíz) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Three.js 3D Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-glow ambient-glow-3"></div>
+
+  <!-- Direct Audio Element (si agregas music.mp3 a la carpeta) -->
+  <audio id="bg-audio" src="music.mp3" preload="auto" loop></audio>
+
+  <!-- Modal de Nuestra Canción -->
+  <div id="music-modal" class="music-modal-overlay">
+    <div class="music-modal-card">
+      <button id="music-modal-close" class="music-modal-close" title="Cerrar">&times;</button>
+      <div class="music-modal-header">
+        <div class="music-modal-badge">
+          <span>🦕💚</span>
+          <span>Nuestra Canción Especial</span>
+        </div>
+        <h3 class="music-modal-title">You &amp; Me (Flume Remix)</h3>
+        <p class="music-modal-artist">Disclosure • Eliza Doolittle • Flume</p>
+      </div>
+      <div class="music-player-frame">
+        <iframe
+          id="sc-music-iframe"
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/96379023&color=%2310b981&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+        </iframe>
+      </div>
+      <p class="music-modal-note">
+        Disfruta de nuestros 5 meses juntos 🦕💚
+      </p>
+    </div>
+  </div>
+
+  <!-- Floating Navigation -->
+  <header>
+    <nav class="top-nav">
+      <a href="#hero" class="nav-brand">
+        <span>Yuliana</span>
+        <span class="brand-heart">🦕💚</span>
+        <span>William</span>
+      </a>
+
+      <ul id="nav-links" class="nav-links">
+        <li>
+          <a href="#cartas" class="nav-link-item">
+            <span class="nav-icon">💌</span>
+            <span>5 Cartas</span>
+          </a>
+        </li>
+        <li>
+          <a href="#razones" class="nav-link-item">
+            <span class="nav-icon">✨</span>
+            <span>¿Por qué te amo?</span>
+          </a>
+        </li>
+        <li>
+          <a href="#recuerdos" class="nav-link-item">
+            <span class="nav-icon">📸</span>
+            <span>Recuerdos</span>
+          </a>
+        </li>
+        <li>
+          <a href="#final" class="nav-link-item">
+            <span class="nav-icon">🥂</span>
+            <span>5 Meses</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="audio-toggle-btn" class="nav-music-pill" title="Nuestra Canción Especial: You &amp; Me (Flume Remix)">
+          <span class="music-icon">🎶</span>
+          <span class="music-pill-label">Nuestra Canción Especial</span>
+          <div class="music-waves">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Abrir menú">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section container">
+      <div class="anniversary-badge">
+        <span>✨</span>
+        <span>Nuestros Primeros 5 Meses</span>
+        <span>✨</span>
+      </div>
+
+      <h1 class="hero-title">5 Meses a tu Lado</h1>
+
+      <p class="hero-subtitle">
+        Un pequeño detalle para el amor de mi vida: Yuliana Valentina
+      </p>
+
+      <div class="couples-names">
+        <span class="name-tag">Yuliana</span>
+        <span class="infinity-symbol" style="color: #10b981;">🦕💚</span>
+        <span class="name-tag">William</span>
+      </div>
+
+      <div class="dino-mascot" onclick="triggerDinoRoar()" title="¡Haz clic en el dinosaurio!">
+        <div class="dino-badge">
+          <span class="dino-character">🦕</span>
+          <span>¡Rawr! Te amo con todo mi corazón 💚 (Tócame)</span>
+        </div>
+      </div>
+
+      <!-- Real-Time Love Counter -->
+      <div class="counter-wrapper glass-panel">
+        <div class="counter-header">
+          <span>⏳</span>
+          <span>Tiempo construyendo nuestra historia de amor</span>
+          <span>🌹</span>
+        </div>
+        <div class="counter-grid">
+          <div class="counter-box">
+            <span id="count-months" class="num">05</span>
+            <span class="label">Meses</span>
+          </div>
+          <div class="counter-box">
+            <span id="count-days" class="num">00</span>
+            <span class="label">Días</span>
+          </div>
+          <div class="counter-box">
+            <span id="count-hours" class="num">00</span>
+            <span class="label">Horas</span>
+          </div>
+          <div class="counter-box">
+            <span id="count-minutes" class="num">00</span>
+            <span class="label">Minutos</span>
+          </div>
+          <div class="counter-box">
+            <span id="count-seconds" class="num">00</span>
+            <span class="label">Segundos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#cartas" class="btn-romantic btn-primary">
+          <span>Abrir Nuestras Cartas</span>
+          <span>💌</span>
+        </a>
+        <a href="#razones" class="btn-romantic btn-secondary">
+          <span>¿Por qué te amo?</span>
+          <span>✨</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: 5 ENVELOPES / CARTAS FLOTANTES -->
+    <section id="cartas" class="section container">
+      <div class="section-header">
+        <span class="section-tag">Recuerdos Inolvidables</span>
+        <h2 class="section-title">Nuestras 5 Cartas</h2>
+        <p class="section-desc">
+          Toca cada sobre para abrir una carta virtual con nuestras fotos y un mensaje dedicado a cada mes de nuestra historia.
+        </p>
+      </div>
+      <div id="envelopes-container" class="envelopes-grid"></div>
+    </section>
+
+    <!-- SECTION: RAZONES POR LAS QUE TE AMO (3D FLIP CARDS) -->
+    <section id="razones" class="section container">
+      <div class="section-header">
+        <span class="section-tag">Desde el Fondo de Mi Corazón</span>
+        <h2 class="section-title">Razones por las que te Amo</h2>
+        <p class="section-desc">
+          Hay infinitos motivos para amarte, pero aquí tienes 5 cosas que me enamoran de ti cada segundo. Haz clic en cada tarjeta para descubrirla.
+        </p>
+      </div>
+      <div id="reasons-container" class="reasons-grid"></div>
+    </section>
+
+    <!-- SECTION: GALERÍA DE RECUERDOS (FOTOS REALES) -->
+    <section id="recuerdos" class="section container">
+      <div class="section-header">
+        <span class="section-tag">Nuestros Momentos Favoritos</span>
+        <h2 class="section-title">Galería de Recuerdos</h2>
+        <p class="section-desc">
+          Cada foto guarda una sonrisa, una aventura y la certeza de que a tu lado todo es más bonito.
+        </p>
+      </div>
+      <div id="gallery-container" class="gallery-grid"></div>
+    </section>
+
+    <!-- SECTION: FINAL SPECIAL MESSAGE & CELEBRATION -->
+    <section id="final" class="section container">
+      <div class="final-letter-card glass-panel" style="border-color: rgba(110, 231, 183, 0.4);">
+        <h2 class="final-heading">¡Felices 5 Meses, Mi Amor!</h2>
+        <p class="final-names">Para: Yuliana Valentina 🦕💚 De: William Esteban</p>
+
+        <p class="final-body">
+          Cinco meses pueden parecer poco tiempo para el resto del mundo, pero para mí han sido los más felices, llenos de amor y aprendizajes de mi vida. Gracias por elegirme cada día, por tu comprensión, tus risas, tus abrazos que curan todo y por ser esa persona que llena de luz mi vida. Cada 28 celebro el regalo más bonito: tenerte conmigo. Te amo con todo mi corazón y esto apenas es el prólogo de nuestra hermosa historia.
+        </p>
+
+        <button id="celebrate-btn" class="celebrate-btn">
+          <span>¡Celebrar Nuestros 5 Meses!</span>
+          <span>🎉🦕💚✨</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer container">
+    <p class="footer-text">Hecho con todo mi amor para ti, Yuliana Valentina 🦕💚</p>
+    <p class="footer-copy">William Esteban • Celebrando nuestro amor cada día</p>
+  </footer>
+
+  <!-- MODAL: CARTA POLAROID DETALLADA -->
+  <div id="letter-modal-overlay" class="modal-overlay">
+    <div class="letter-modal">
+      <button id="modal-close-btn" class="modal-close-btn" title="Cerrar">&times;</button>
+      <div class="modal-grid">
+        <div class="polaroid-wrapper">
+          <div class="polaroid-card">
+            <div class="polaroid-img-container">
+              <img id="modal-img" src="photos/photo_1.jpg" alt="Foto Polaroid del Mes">
+            </div>
+            <p id="modal-caption" class="polaroid-caption">Nuestro Comienzo ✨</p>
+          </div>
+        </div>
+        <div class="modal-text-content">
+          <div id="modal-tag" class="modal-header-tag">Mes 1 • 28 de Junio</div>
+          <h3 id="modal-title" class="modal-title">El día que todo comenzó</h3>
+          <p id="modal-body" class="modal-letter-body"></p>
+          <div id="modal-signature" class="modal-signature">William &amp; Yuliana 🦕💚</div>
+          <div class="modal-nav-bar">
+            <button id="modal-prev-btn" class="modal-nav-btn"><span>← Mes Anterior</span></button>
+            <div id="modal-dots" class="modal-dots"></div>
+            <button id="modal-next-btn" class="modal-nav-btn"><span>Siguiente Mes →</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: LIGHTBOX PARA GALERÍA DE FOTOS -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <button id="lightbox-close-btn" class="modal-close-btn" style="top: 2rem; right: 2rem;">&times;</button>
+    <button id="lightbox-prev-btn" class="lightbox-nav-btn lightbox-prev">‹</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Foto ampliada">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+    <button id="lightbox-next-btn" class="lightbox-nav-btn lightbox-next">›</button>
+  </div>
+
+  <!-- Three.js (raíz) -->
+  <script src="three.min.js"></script>
+  <script>
+    if (typeof THREE === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- Canvas Confetti (raíz) -->
+  <script src="confetti.browser.min.js"></script>
+  <script>
+    if (typeof confetti === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- Main Logic (raíz) -->
+  <script src="app.js"></script>
+
+  <!-- PWA Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
+
+</body>
+</html>
